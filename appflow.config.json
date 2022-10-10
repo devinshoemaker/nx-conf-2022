@@ -1,0 +1,10 @@
+{
+  "apps": [
+    {
+      "appId": "2af5f90b",
+      "root": "apps/mobile",
+      "dependencyInstallCommand": "npm i && cd ../../ && npm i",
+      "webBuildCommand": "cd ../../ && npx nx build mobile"
+    }
+  ]
+}
