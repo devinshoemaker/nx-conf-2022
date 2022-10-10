@@ -1,0 +1,22 @@
+name: Build web app
+
+on:
+  push:
+    branches: [ "dev" ]
+
+env:
+  IONIC_CLOUD_VERSION: 0.6.4
+  IONIC_TOKEN: ${{ secrets.IONIC_TOKEN }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Ionic Cloud CLI
+        run: curl -fsSL https://ionic.io/get-ionic-cloud-cli | bash
+
+      - name: Run web build
+        run: ionic-cloud build web --app-id=2af5f90b --commit=${{ github.sha }}
